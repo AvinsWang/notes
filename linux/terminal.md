@@ -1,5 +1,5 @@
 # Terminal shortcut
-a-b means release a then press b
+a-b means release a then press b  
 a+b means press a and b
 
 
