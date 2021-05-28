@@ -72,4 +72,3 @@ Ctrl-s		# disable screen output
 Ctrl-q		# enable screen output  
 Ctrl-c		# stop  
 Ctrl-z		# exec background, oppsite to command 'fg'  
-
