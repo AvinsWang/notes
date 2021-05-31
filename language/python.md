@@ -9,7 +9,7 @@ format float:
 f"{float_var:.2f}"  
 
 format string width:  
-f"{{str_var:02}}"    # 如果有0, 位数不够补0; 超出指定位数, 末位截断  
+f"{str_var:02}"    # 如果有0, 位数不够补0; 超出指定位数, 末位截断  
 
 align:  
 f"{str_var:>10}"     # align right  
@@ -21,8 +21,8 @@ f"{str_var:<10}"     # align left
 - 写入读取文件需要指定为字节格式, wb or rb
 
 pickle.dump(obj, file, protocol=None)   # file打开格式为wb
-pickle.load(file, * , fix_imports=True, encodeing='ASCII', errors='strict')    # file打开格式为rb
-pickle.dumps(obj)    # obj to  byte对象
+pickle.load(file, *, fix_imports=True, encodeing='ASCII', errors='strict')    # file打开格式为rb
+pickle.dumps(obj)    # obj to byte对象
 pickle.loads(obj)    # byte对象 to obj
 
 
@@ -30,14 +30,14 @@ pickle.loads(obj)    # byte对象 to obj
 from datetime import datetime, timedelta, timezone
 
 datetime.now()    # 当前时间, datetime对象  
-datetime(Y,m,d,H,M,S)    # 初始化datetime对象  
+datetime(Y,m,d,H,M,S)    # 初始化datetime对象, eg. datetime(2021,5,31,12,00,00)
 dt.timetuple()    # datetime to time obj
 
 dt.timestamp()    # datetime to mktime
 time.mktime(dt.timetuple())       # 同上
 
-datetime.fromtimestamp(mktime)    # mktime to localtime(datetime)
-datetime.utcfromtimestamp(t)      # mktime to utctime(datetime)
+datetime.fromtimestamp(mktime)    # mktime to localtime:datetime
+datetime.utcfromtimestamp(t)      # mktime to utctime:datetime
 
 datetime.strptime('2021-01-01 01:01:01', '%Y-%m-%d %H:%M:%S')    # string to datetime
 dt.strftime('%Y-%m-%d %H:%M:%S')  # datetime to string
