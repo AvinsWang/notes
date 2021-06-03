@@ -73,7 +73,7 @@ x = {k:a[k] for k in a.keys() - {k1}}	# 字典推导,排除k1的元素
 注意: keys()返回的是key的视图, items()返回的是(key, value)的视图, 这两个支持集合操作; values()不支持集合操作, 因为其值可能不唯一  
 
 
-### 删除重复元素  
+### 删除重复元素并保持顺序    
 set(list)			# 去除重复元素, 乱序  
 
 list, dict去除重复元素, 保持原始顺序, 这里的key和sorted中的key一致, 参考1.10    
@@ -88,6 +88,19 @@ def dedupe(items, key=None):
 ```
 
 
+## 命名切片  
+name = slice(5, 50)		# b.step = None  
+name = slice(5, 50, 2)		# start, stop, step, 可以直接用'.'访问  
+new = name.indices(number)	# 对命名切片对象进行缩放, 当start<number, stop=number; 当number<start, start=stop=number; 注意值>=0  
 
+
+## 统计出现次数  
+collections.Counter(hashable)	# 返回字典,key=name,value=出现次数
+most_common(n:int)		# 成员方法, 返回频率最高的前n个键值对  
+update(hashable)		# 增加更新的值  
++, - 				# 对相同key对应的value进行加减  
+
+
+## 字典排序  
 
 
