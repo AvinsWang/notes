@@ -102,5 +102,51 @@ update(hashable)		# 增加更新的值
 
 
 ## 字典排序  
+通过几个key对字典列表[{}, {}, ...]进行排序  
+from operator import itemgetter  
+sorted_dict = sorted(src_dict, key=itemgetter('key1', 'key2'))  
+sorted_dict = sorted(src_dict, key=lambda r: (r['key1', r['key2']))	# 效率低于itemgetter  
+min(src_dict, key=itemgetter('key'))	# max类似  
 
 
+## 自定义类排序 
+[instance1, instace2, ...] 
+from operator import itemgetter  
+sorted_ = sorted(src_instance_list, key=itemgetter('attr1', 'attr2'))  
+min, max 同字典排序类似  
+
+
+## 字典列表分组  
+from operator import itemgetter  
+from itertools import groupby  
+for date, items in groupby(dict_list, key=itemgetter('date'))		# 返回分组的key和该key对应的迭代器  
+
+注意:  
+1. 使用groupby需要先对原始数据进行排序, 因为groupby仅仅检查连续的元素, 如果没有排序得到的可能不是想要的结果  
+2. 可以使用defaultdict构建多值字典  
+
+
+## 数据过滤  
+使用列表推导  
+[n for n in mylist if n > 0]		# 缺点,如果输入结果非常大的时候会产生一个非常大的结果集, 占用大量内存, 可以用生成器迭代产生, 将'[]'换成'()'  
+vals = list(filter(is_int, values))	# is_int 是类型判断函数, values为一个可迭代对象, filter返回是一个迭代器  
+
+过滤工具:itertools.compress()  
+for itertools import compress  
+list(copress(src_list, bool_list))	# src_list 和 bool_list 长度要一致, 取出bool_list为True的index在src_list中的元素  
+
+
+## 提取字典子集  
+{K:v for k, v in _dict.items() if value > 200}		# 字典推导  
+{K:v for k, v in _dict.items() if key in {'k1', 'k2'}}	# 字典推导  
+
+
+## 命名元组  
+form collections import namedtuple  
+Demo = nametuple('name', ['attr_name1', 'attr_name2'])  
+sub = Demo('value1', 'value2')  			# sub.attr_name1 的值为value1  
+
+注意: 命名元组可以代替字典, 但是一般不可更改, 如果需要更改使用_replace(key=value)  
+sub._replace(**s)					# sub创建或这更新值, 注意 s 类型为 dict  
+
+ 
