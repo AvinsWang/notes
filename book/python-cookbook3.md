@@ -170,5 +170,11 @@ values.parents				# 返回父字典
 ## 第二章 字符串和文本  
 
 ### 使用多个字符分隔字符串  
-使用re.split()
+使用re.split(pattern, string)  
+pattern: 正则表达式, 如r'[;,\s]\s*' 匹配以逗号,分号,空格后面紧跟任意个空格; r'(;|,\s)\s*' 保留分隔字符串, (?:...) 不保留分隔字符串  
+
+
+### 匹配字符串开头,结尾  
+使用startswith(), 和endwith(), 里面的参数可以为多个值,但必须为元组  
+也可以使用re.match(patten, string)   
 
