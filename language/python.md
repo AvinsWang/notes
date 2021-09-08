@@ -49,3 +49,14 @@ dt.replace(tzinfo=tz_utc_8)       # change timezone
 
 utc_dt = datetime.utcnow()        # get utc now time
 bj_dt = utc_dt.astimezone(tz_utc_8)    # change timezone  
+
+
+## logging v3.9.7
+使用标准库中提供的logging API让程序中所有模块(自定义,第三方)都可以记录日志
+- Loggers 提供可以让程序直接调用记录日志的接口  
+- Handlers 发送由loggers创建的日志到合适目标  
+- Fileters 过滤并选择哪些日志需要输出  
+- Formaters 指定日志最终的输出格式  
+注: 不要直接实例化一个logger, 应使用logging.getLogger(name)来获取logger对象, 类似单例  
+
+
